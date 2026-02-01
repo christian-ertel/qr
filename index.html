@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>QR-Demo Formular</title>
+</head>
+<body>
+  <h2>Kundendaten</h2>
+
+  <form>
+    <label>Titel:
+      <input type="text" id="titel">
+    </label><br><br>
+
+    <label>Vorname:
+      <input type="text" id="vorname">
+    </label><br><br>
+
+    <label>Nachname:
+      <input type="text" id="nachname">
+    </label><br><br>
+
+    <label>Kundennummer:
+      <input type="text" id="kundennummer">
+    </label>
+  </form>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    ["titel", "vorname", "nachname", "kundennummer"].forEach(id => {
+      if (params.get(id)) {
+        document.getElementById(id).value = params.get(id);
+      }
+    });
+  </script>
+</body>
+</html>
